@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-image: url('valentine_kish_pooja.jpg'); /* Replace with your image */
+      background-repeat: no-repeat;            /* Prevent tiling */
+      background-position: center top;         /* Position at top center */
+      background-size: 600px auto;             /* Fixed width, auto height */
+      position: relative;                      /* Needed for overlay */
+      height: 100vh;                           /* Full viewport height */
+      overflow: hidden;
+    }
+
+    /* Overlay tint */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 192, 203, 0.4); /* soft pink tint */
+      z-index: -1; /* keep it behind content */
+    }
+
+    h1 {
+      color: red;
+      background-color: rgba(255, 255, 255, 0.7); /* semi-transparent background for readability */
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .yes {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+      color: black;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine? 💌</h1>
+  <button class="btn yes" onclick="alert('Yay! You said YES ❤️')">Yes</button>
+  <button class="btn no" id="noBtn">No</button>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      // Random position inside the window
+      const x = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+      const y = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+  </script>
+</body>
+</html>
